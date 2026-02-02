@@ -6,11 +6,7 @@ type StockSpanner struct {
 }
 
 func Constructor() StockSpanner {
-	return StockSpanner{
-		prices: []int{},
-		spans:  [][]int{},
-	}
-
+	return StockSpanner{}
 }
 
 func (this *StockSpanner) Next(price int) int {
