@@ -34,23 +34,3 @@ func (s *KindaSet[T]) Print() {
 		fmt.Printf("%v\t", value)
 	}
 }
-
-func main() {
-	kindaSet := NewSet[string]()
-
-	kindaSet.Add("apple")
-	kindaSet.Add("banana")
-	kindaSet.Add("apple")
-
-	kindaSet.Print()
-	fmt.Print("\n")
-	fmt.Printf("Set size: %v\n", kindaSet.Len())
-	fmt.Printf("Contains apple: %v\n", kindaSet.Contains("apple"))
-	fmt.Printf("Contains banana: %v\n", kindaSet.Contains("banana"))
-
-	kindaSet.Remove("banana")
-	kindaSet.Print()
-	fmt.Print("\n")
-	fmt.Printf("Contains banana: %v\n", kindaSet.Contains("banana"))
-
-}
