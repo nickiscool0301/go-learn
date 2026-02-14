@@ -27,16 +27,11 @@ func (h *Heap[T]) Peek() T {
 }
 
 func (h *Heap[T]) Push(val T) {
-	// append to slice, then sift up
 	h.items = append(h.items, val)
 	h.siftUp(len(h.items) - 1)
-
 }
 
 func (h *Heap[T]) Pop() T {
-	// save root, move last element to root, shrink slice, sift down from root
-	// return the saved root
-
 	n := len(h.items)
 	if n == 0 {
 		panic("pop from empty heap")
@@ -64,9 +59,6 @@ func (h *Heap[T]) Heapify(arr []T) {
 }
 
 func (h *Heap[T]) siftUp(i int) {
-	// while i > 0
-	// if items[i] less than items[parent] -> swap, move i to parent
-	// else -> stop
 	for i > 0 {
 		parent := (i - 1) / 2
 		if !h.less(h.items[i], h.items[parent]) {
@@ -78,10 +70,6 @@ func (h *Heap[T]) siftUp(i int) {
 }
 
 func (h *Heap[T]) siftDown(i int) {
-	// while i has at least a left child
-	// find smallest child (compare left and right)
-	// if items[i] is >= smaller child -> swap, move i to that
-	// else -> stop
 	n := len(h.items)
 
 	for {
@@ -111,4 +99,18 @@ func (h *Heap[T]) Print() {
 		fmt.Printf("%d ", value)
 	}
 	fmt.Println()
+}
+
+func main() {
+	minHeap := NewHeap[int](func(a, b int) bool {
+		return a < b
+	})
+
+	arr := []int{1, 5, 10, 2, 3, 2, 15, 25, 100}
+	minHeap.Heapify(arr)
+	minHeap.Print()
+	minHeap.Push(-1)
+	minHeap.Print()
+	minHeap.Pop()
+	minHeap.Print()
 }

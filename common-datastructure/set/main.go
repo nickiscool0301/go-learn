@@ -30,7 +30,26 @@ func (s *KindaSet[T]) Len() int {
 }
 
 func (s *KindaSet[T]) Print() {
-	for value, _ := range s.items {
+	for value := range s.items {
 		fmt.Printf("%v\t", value)
 	}
+}
+
+func main() {
+	kindaSet := NewSet[string]()
+
+	kindaSet.Add("apple")
+	kindaSet.Add("banana")
+	kindaSet.Add("apple")
+
+	kindaSet.Print()
+	fmt.Print("\n")
+	fmt.Printf("Set size: %v\n", kindaSet.Len())
+	fmt.Printf("Contains apple: %v\n", kindaSet.Contains("apple"))
+	fmt.Printf("Contains banana: %v\n", kindaSet.Contains("banana"))
+
+	kindaSet.Remove("banana")
+	kindaSet.Print()
+	fmt.Print("\n")
+	fmt.Printf("Contains banana: %v\n", kindaSet.Contains("banana"))
 }

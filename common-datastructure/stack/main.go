@@ -1,5 +1,7 @@
 package main
 
+import "fmt"
+
 type Stack[T any] []T
 
 func NewStack[T any]() *Stack[T] {
@@ -32,4 +34,15 @@ func (s *Stack[T]) Len() int {
 
 func (s *Stack[T]) IsEmpty() bool {
 	return len(*s) == 0
+}
+
+func main() {
+	s := NewStack[int]()
+	s.Push(1)
+	s.Push(2)
+	s.Push(3)
+
+	fmt.Println("Peek:", s.Peek())
+	fmt.Println("Pop:", s.Pop())
+	fmt.Println("Len:", s.Len())
 }
