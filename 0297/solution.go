@@ -1,17 +1,21 @@
+package main
 
 import (
-	"strings"
 	"strconv"
+	"strings"
 )
 
-/**
- * Definition for a binary tree node.
- * type TreeNode struct {
- *     Val int
- *     Left *TreeNode
- *     Right *TreeNode
- * }
- */
+/* Some personal notes
+* A pointer (*int, *[]string): holds a memory address
+	* &x: give me addres of x
+   * *p: give me value at this address
+*/
+
+type TreeNode struct {
+	Val   int
+	Left  *TreeNode
+	Right *TreeNode
+}
 
 type Codec struct {
 }
